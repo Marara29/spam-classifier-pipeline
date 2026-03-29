@@ -5,7 +5,7 @@ A portfolio-ready machine learning project that rebuilds an end-to-end **spam de
 This repository is designed to do two things well:
 
 1. **Reproduce the assignment pipeline**  
-   It generates the exact deliverables required by the homework:
+   It generates the exact deliverables required:
    - `train-features.tsv`
    - `test-features.tsv`
    - `feature-probabilities.tsv`
