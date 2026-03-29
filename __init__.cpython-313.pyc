@@ -1,0 +1,37 @@
+from __future__ import annotations
+
+import numpy as np
+import pandas as pd
+
+
+def build_roc_frame(test_predictions: pd.DataFrame, raw_df: pd.DataFrame) -> pd.DataFrame:
+    merged = test_predictions.merge(
+        raw_df[["Message ID", "Spam/Ham"]],
+        on="Message ID",
+        how="left",
+        validate="one_to_one",
+    ).copy()
+
+    merged["label"] = merged["Spam/Ham"].map({"ham": 0, "spam": 1})
+
+    rows = []
+    for threshold in np.arange(0.01, 1.00, 0.01):
+        merged["pred"] = (merged["spam"] >= threshold).astype(int)
+
+        tp = int(((merged["pred"] == 1) & (merged["label"] == 1)).sum())
+        fp = int(((merged["pred"] == 1) & (merged["label"] == 0)).sum())
+        tn = int(((merged["pred"] == 0) & (merged["label"] == 0)).sum())
+        fn = int(((merged["pred"] == 0) & (merged["label"] == 1)).sum())
+
+        false_positive_rate = fp / (fp + tn) if (fp + tn) else 0.0
+        true_positive_rate = tp / (tp + fn) if (tp + fn) else 0.0
+
+        rows.append(
+            {
+                "threshold": round(float(threshold), 2),
+                "false_positive_rate": false_positive_rate,
+                "true_positive_rate": true_positive_rate,
+            }
+        )
+
+    return pd.DataFrame(rows)
