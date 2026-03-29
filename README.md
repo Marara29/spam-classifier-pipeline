@@ -2,9 +2,10 @@
 
 A portfolio-ready machine learning project that rebuilds an end-to-end **spam detection pipeline** on the Enron email dataset using **count-based feature engineering** and a **multinomial Naïve Bayes classifier**.
 
+> I built an end-to-end email spam classifier on the Enron dataset. I engineered sparse count-based text features from the subject and message body, trained a multinomial Naïve Bayes model with Laplace smoothing, generated class probabilities for train and test splits, and evaluated the model with ROC metrics. I also refactored the work into modular Python code and reproducible artifacts suitable for GitHub.
 This repository is designed to do two things well:
 
-1. **Reproduce the assignment pipeline**  
+1.
    It generates the exact deliverables required:
    - `train-features.tsv`
    - `test-features.tsv`
@@ -218,11 +219,6 @@ This project is good for discussing:
 - **ROC curves, thresholding, and AUC**
 - **how to turn a homework pipeline into production-style code**
 
-A concise way to describe it in an interview:
-
-> I built an end-to-end email spam classifier on the Enron dataset. I engineered sparse count-based text features from the subject and message body, trained a multinomial Naïve Bayes model with Laplace smoothing, generated class probabilities for train and test splits, and evaluated the model with ROC metrics. I also refactored the work into modular Python code and reproducible artifacts suitable for GitHub.
-
----
 
 ## Notes
 
@@ -233,11 +229,4 @@ A concise way to describe it in an interview:
 
 ---
 
-## Next improvements
 
-Good follow-on ideas for a second version:
-
-- compare Naïve Bayes with logistic regression
-- add n-gram ablations and error analysis
-- package the project with tests and CI
-- build a small Streamlit or FastAPI demo
