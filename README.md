@@ -205,28 +205,6 @@ Email text creates a very large vocabulary. Sparse storage keeps the output comp
 ### Why log probabilities?
 Multiplying many small conditional probabilities causes numerical underflow. The classifier therefore works in **log space** and converts back to normalized probabilities at the end.
 
----
 
-## Interview-ready talking points
-
-This project is good for discussing:
-
-- **feature engineering for NLP**
-- **multinomial Naïve Bayes**
-- **Laplace smoothing**
-- **class priors and posterior probabilities**
-- **numerical stability with log probabilities**
-- **ROC curves, thresholding, and AUC**
-- **how to turn a homework pipeline into production-style code**
-
-
-## Notes
-
-- The train/test split follows the assignment rule exactly:  
-  `Message ID % 30 == 0` → test, otherwise train.
-- Unseen test-time tokens are ignored during prediction.
-- The repository does **not** need the dataset committed to GitHub; users can supply the CSV locally when running the pipeline.
-
----
 
 
